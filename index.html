@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio</title>
+    <link href="style.css" rel="stylesheet">
+</head>
+
+<body>
+    <time class="clock" id="clock" aria-label="Current time">
+        <span id="clock-hours">00</span>
+        <span class="clock-separator" aria-hidden="true">:</span>
+        <span id="clock-minutes">00</span>
+        <span class="clock-separator" aria-hidden="true">:</span>
+        <span id="clock-seconds">00</span>
+    </time>
+    <main>
+        <div class="animated-number" aria-label="Rating count">
+
+            <span id="animated-value">0</span>
+        </div>
+        <article class="tilt-card" id="content-card">
+            <img src="imgs/Screenshot 2026-09-09 145747.png" alt="University campus animation" id="card-image">
+            <div class="card-content">
+                <button class="card-header" id="description-trigger" type="button" aria-expanded="false"
+                    aria-controls="description-panel">
+                    <span class="card-title" id="card-title">Edinburgh Napier University</span>
+                    <span class="description-arrow" aria-hidden="true">+</span>
+                </button>
+                <div class="description-panel" id="description-panel" aria-hidden="true">
+                    <p class="description" id="card-description">Bachelor of Science with Distinction</p>
+
+                    <a class="play-button" id="play-button" href="#" target="_blank" rel="noopener noreferrer" hidden>
+                        Play The Game
+                    </a>
+                </div>
+            </div>
+        </article>
+        <div class="dock-wrapper">
+
+
+            <nav class="dock" aria-label="Website sections">
+                <button class="dock-item is-active" type="button" data-view="home" aria-label="Home"
+                    aria-pressed="true">
+                    <span class="dock-icon" aria-hidden="true">⌂</span>
+                    <span class="dock-label">Home</span>
+                </button>
+                <button class="dock-item" type="button" data-view="project1" aria-label="Products" aria-pressed="false">
+                    <span class="dock-icon" aria-hidden="true">▣</span>
+                    <span class="dock-label">Project</span>
+                </button>
+                <button class="dock-item" type="button" data-view="project2" aria-label="Components"
+                    aria-pressed="false">
+                    <span class="dock-icon" aria-hidden="true">◇</span>
+                    <span class="dock-label">Project</span>
+                </button>
+                <button class="dock-item" type="button" data-view="project3" aria-label="Activity" aria-pressed="false">
+                    <span class="dock-icon" aria-hidden="true">⁜</span>
+                    <span class="dock-label">Project</span>
+                </button>
+                <button class="dock-item" type="button" data-view="project4" aria-label="Change log"
+                    aria-pressed="false">
+                    <span class="dock-icon" aria-hidden="true">⌀</span>
+                    <span class="dock-label">Project</span>
+                </button>
+                <button class="dock-item" type="button" data-view="email" aria-label="Email" aria-pressed="false">
+                    <span class="dock-icon" aria-hidden="true">✉</span>
+                    <span class="dock-label">Email</span>
+                </button>
+                <button class="dock-item" type="button" data-view="theme" aria-label="Change theme"
+                    aria-pressed="false">
+                    <span class="dock-icon" aria-hidden="true">◐</span>
+                    <span class="dock-label">Theme</span>
+                </button>
+
+                <div class="dock-extra-row" id="dock-extra-row" hidden>
+                    <button class="dock-item" type="button" aria-label="Extra 1">★</button>
+                    <button class="dock-item" type="button" aria-label="Extra 2">⚙</button>
+                    <button class="dock-item" type="button" aria-label="Extra 3">☰</button>
+                </div>
+            </nav>
+            <button class="dock-item dock-toggle" id="dock-expand" type="button" aria-expanded="false"
+                aria-label="Expand dock">
+                <span class="dock-icon">⌃</span>
+            </button> 
+
+        </div>
+
+    </main>
+    <script>
+        const page = document.body;
+        const card = document.querySelector('#content-card');
+        const cardImage = document.querySelector('#card-image');
+        const cardTitle = document.querySelector('#card-title');
+        const cardDescription = document.querySelector('#card-description');
+        const descriptionTrigger = document.querySelector('#description-trigger');
+        const descriptionPanel = document.querySelector('#description-panel');
+        const dockItems = document.querySelectorAll('.dock-item');
+        const playButton = document.querySelector('#play-button');
+        const dockExpand = document.querySelector("#dock-expand");
+        const dockExtraRow = document.querySelector("#dock-extra-row");
+
+        dockExpand.addEventListener("click", () => {
+            const expanded =
+                dockExpand.getAttribute("aria-expanded") === "true";
+
+            dockExtraRow.hidden = expanded;
+            dockExpand.setAttribute("aria-expanded", String(!expanded));
+            dockExpand.setAttribute(
+                "aria-label",
+                expanded ? "Expand dock" : "Collapse dock"
+            );
+
+            dockExpand.querySelector(".dock-icon").textContent =
+                expanded ? "⌃" : "⌄";
+        });
+        const views = {
+            home: {
+                title: 'Edinburgh Napier University',
+                description: 'Bachelor of Science with Distinction',
+                image: 'imgs/Screenshot 2026-09-09 145747.png',
+                accent: '#ff0180'
+            },
+            project1: {
+                title: 'ECommerce Website',
+                description: 'php-based website with a MySQL database and a custom admin panel',
+                image: 'imgs/Screenshot 2026-09-09 155439.png',
+                accent: '#ff0180'
+            },
+            project2: {
+                title: 'DnD RPG Turn-Based Web Game',
+                description: 'A html based game with JavaScript, a user can either enjoy the story or battle against random mobs in the dungeon.',
+                image: 'imgs/Screenshot 2026-09-09 155752.png',
+                accent: '#ff0180',
+                link: 'https://snk-40794423.github.io/40794423-Web-Technologies-Coursework/'
+            },
+            project3: {
+                title: 'AI Tourism Chatbot',
+                description: 'A chatbot with API integration which answers the questions about destinated place\'s travel spots.',
+                image: 'imgs/fadvgvdg.png',
+                accent: '#ff0180'
+            },
+            project4: {
+                title: 'A dice game with a leaderboard',
+                description: 'A simple dice game software with a leaderboard to see who earned the most ',
+                image: 'https://images.unsplash.com/photo-1553877522-43269d4ea984?auto=format&fit=crop&w=700&q=80',
+                accent: '#ff0180'
+            },
+            email: {
+                title: 'Contact',
+                description: 'sainanda69420@gmail.com                    \n+959762633144',
+                image: 'https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=700&q=80',
+                accent: '#ff0180'
+            }
+        };
+
+        descriptionTrigger.addEventListener('click', () => {
+            const isOpen = descriptionTrigger.getAttribute('aria-expanded') === 'true';
+            descriptionTrigger.setAttribute('aria-expanded', String(!isOpen));
+            descriptionPanel.setAttribute('aria-hidden', String(isOpen));
+            descriptionPanel.classList.toggle('is-open', !isOpen);
+        });
+
+        dockItems.forEach((item) => {
+            item.addEventListener('click', () => {
+                const viewName = item.dataset.view;
+
+                if (viewName === 'theme') {
+                    page.classList.toggle('light-theme');
+                    item.setAttribute('aria-pressed', page.classList.contains('light-theme'));
+                    return;
+                }
+
+                const view = views[viewName];
+                cardImage.src = view.image;
+                cardImage.alt = view.title;
+                cardTitle.textContent = view.title;
+                cardDescription.textContent = view.description;
+                descriptionTrigger.setAttribute('aria-expanded', 'false');
+                descriptionPanel.setAttribute('aria-hidden', 'true');
+                descriptionPanel.classList.remove('is-open');
+                card.style.setProperty('--accent-color', view.accent);
+                page.style.setProperty('--accent-color', view.accent);
+
+                dockItems.forEach((dockItem) => {
+                    const isActive = dockItem === item;
+                    dockItem.classList.toggle('is-active', isActive);
+                    dockItem.setAttribute('aria-pressed', isActive);
+                });
+                if (view.link) {
+                    playButton.href = view.link;
+                    playButton.hidden = false;
+                } else {
+                    playButton.hidden = true;
+                    playButton.removeAttribute('href');
+                }
+            });
+        });
+
+        const valueElement = document.querySelector('#animated-value');
+        const targetValue = 2026;
+        const duration = 4000;
+        const startTime = performance.now();
+
+        function animateValue(currentTime) {
+            const progress = Math.min((currentTime - startTime) / duration, 1);
+            const easedProgress = 1 - Math.pow(1 - progress, 3);
+            valueElement.textContent = Math.round(targetValue * easedProgress).toLocaleString();
+
+            if (progress < 1) {
+                requestAnimationFrame(animateValue);
+            }
+        }
+
+        requestAnimationFrame(animateValue);
+
+        const clock = document.querySelector('#clock');
+        const hoursElement = document.querySelector('#clock-hours');
+        const minutesElement = document.querySelector('#clock-minutes');
+        const secondsElement = document.querySelector('#clock-seconds');
+
+        function updateClock() {
+            const now = new Date();
+            const padTime = (value) => String(value).padStart(2, '0');
+            const hours = padTime(now.getHours());
+            const minutes = padTime(now.getMinutes());
+            const seconds = padTime(now.getSeconds());
+
+            hoursElement.textContent = hours;
+            minutesElement.textContent = minutes;
+            secondsElement.textContent = seconds;
+            clock.dateTime = now.toISOString();
+        }
+
+        updateClock();
+        setInterval(updateClock, 1000);
+    </script>
+</body>
+
+</html>
