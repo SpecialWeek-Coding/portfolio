@@ -33,7 +33,7 @@
                     <p class="description" id="card-description">Bachelor of Science with Distinction</p>
 
                     <a class="play-button" id="play-button" href="#" target="_blank" rel="noopener noreferrer" hidden>
-                        Play The Game
+                        Go to Website
                     </a>
                 </div>
             </div>
@@ -45,46 +45,52 @@
                 <button class="dock-item is-active" type="button" data-view="home" aria-label="Home"
                     aria-pressed="true">
                     <span class="dock-icon" aria-hidden="true">⌂</span>
-                    <span class="dock-label">Home Sweet</span>
+                    <span class="dock-label">Educaion</span>
                 </button>
-                <button class="dock-item" type="button" data-view="project1" aria-label="Products" aria-pressed="false">
+                <button class="dock-item" type="button" data-view="project1" aria-pressed="false">
                     <span class="dock-icon" aria-hidden="true">▣</span>
-                    <span class="dock-label">Project</span>
+                    <span class="dock-label">E-Commerce Web</span>
                 </button>
-                <button class="dock-item" type="button" data-view="project2" aria-label="Components"
-                    aria-pressed="false">
+                <button class="dock-item" type="button" data-view="project2" aria-pressed="false">
                     <span class="dock-icon" aria-hidden="true">◇</span>
-                    <span class="dock-label">Project</span>
+                    <span class="dock-label">Web VN Game</span>
                 </button>
-                <button class="dock-item" type="button" data-view="project3" aria-label="Activity" aria-pressed="false">
+                <button class="dock-item" type="button" data-view="project3" aria-pressed="false">
                     <span class="dock-icon" aria-hidden="true">⁜</span>
-                    <span class="dock-label">Project</span>
+                    <span class="dock-label">Tourism Chatbot</span>
                 </button>
-                <button class="dock-item" type="button" data-view="project4" aria-label="Change log"
-                    aria-pressed="false">
+                <button class="dock-item" type="button" data-view="project4" aria-pressed="false">
                     <span class="dock-icon" aria-hidden="true">⌀</span>
-                    <span class="dock-label">Project</span>
+                    <span class="dock-label">Dice Game Software</span>
                 </button>
-                <button class="dock-item" type="button" data-view="email" aria-label="Email" aria-pressed="false">
+                <button class="dock-item" type="button" data-view="email" aria-pressed="false">
                     <span class="dock-icon" aria-hidden="true">✉</span>
                     <span class="dock-label">Email</span>
                 </button>
-                <button class="dock-item" type="button" data-view="theme" aria-label="Change theme"
-                    aria-pressed="false">
+                <button class="dock-item" type="button" data-view="theme" aria-pressed="false">
                     <span class="dock-icon" aria-hidden="true">◐</span>
                     <span class="dock-label">Theme</span>
                 </button>
 
                 <div class="dock-extra-row" id="dock-extra-row" hidden>
-                    <button class="dock-item" type="button" aria-label="Extra 1">★</button>
-                    <button class="dock-item" type="button" aria-label="Extra 2">⚙</button>
-                    <button class="dock-item" type="button" aria-label="Extra 3">☰</button>
+                    <button class="dock-item" type="button" data-view="project5" aria-pressed="false">
+                        <span class="dock-icon" aria-hidden="true">♞</span>
+                        <span class="dock-label">Project</span>
+                    </button>
+<!--                     <button class="dock-item" type="button" data-view="project6" aria-pressed="false">
+                        <span class="dock-icon" aria-hidden="true">愛</span>
+                        <span class="dock-label">Project</span>
+                    </button>
+                    <button class="dock-item" type="button" data-view="project7" aria-pressed="false">
+                        <span class="dock-icon" aria-hidden="true">滅</span>
+                        <span class="dock-label">Project</span>
+                    </button> -->
                 </div>
             </nav>
             <button class="dock-item dock-toggle" id="dock-expand" type="button" aria-expanded="false"
                 aria-label="Expand dock">
                 <span class="dock-icon">⌃</span>
-            </button> 
+            </button>
 
         </div>
 
@@ -114,7 +120,7 @@
             );
 
             dockExpand.querySelector(".dock-icon").textContent =
-                expanded ? "⌃" : "⌄";
+                expanded ? "+" : "-";
         });
         const views = {
             home: {
@@ -127,33 +133,42 @@
                 title: 'ECommerce Website',
                 description: 'php-based website with a MySQL database and a custom admin panel',
                 image: 'imgs/Screenshot 2026-09-09 155439.png',
-                accent: '#ff0180'
+                accent: '#ff0100',
+                link: 'https://youtu.be/ZVUxJsPfoX8?si=pFVXYXHF48bh6X9g' //wip
             },
             project2: {
                 title: 'DnD RPG Turn-Based Web Game',
                 description: 'A html based game with JavaScript, a user can either enjoy the story or battle against random mobs in the dungeon.',
                 image: 'imgs/Screenshot 2026-09-09 155752.png',
-                accent: '#ff0180',
+                accent: '#7f0080',
                 link: 'https://snk-40794423.github.io/40794423-Web-Technologies-Coursework/'
             },
             project3: {
                 title: 'AI Tourism Chatbot',
                 description: 'A chatbot with API integration which answers the questions about destinated place\'s travel spots.',
                 image: 'imgs/fadvgvdg.png',
-                accent: '#ff0180'
+                accent: '#12f183'
             },
             project4: {
                 title: 'A dice game with a leaderboard',
                 description: 'A simple dice game software with a leaderboard to see who earned the most ',
                 image: 'https://images.unsplash.com/photo-1553877522-43269d4ea984?auto=format&fit=crop&w=700&q=80',
-                accent: '#ff0180'
+                accent: '#999999'
+            },
+            project5: { 
+                title: 'Horse Race betting simulator',
+                description: 'A simple website where you can place bets for horse racing',
+                image: 'https://upload.wikimedia.org/wikipedia/commons/5/5b/Epiphaneia_Japan_Cup_2014%28IMG1%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=original',
+                accent: '#000180',
+                link: 'https://en.netkeiba.com' //wip
             },
             email: {
                 title: 'Contact',
                 description: 'sainanda69420@gmail.com                    \n+959762633144',
                 image: 'https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=700&q=80',
-                accent: '#ff0180'
+                accent: '#e6e600'
             }
+
         };
 
         descriptionTrigger.addEventListener('click', () => {

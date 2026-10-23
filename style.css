@@ -160,7 +160,7 @@ main {
 
     border: 1px solid rgba(255, 255, 255, 0.18);
     border-radius: 20px;
-    background: rgba(39, 39, 42, 0.86);
+    background: rgba(205, 206, 206, 0.86);
     box-shadow: 0 12px 32px rgba(0, 0, 0, 0.35);
     backdrop-filter: blur(12px);
 
@@ -249,7 +249,7 @@ main {
 }
 
 .dock-extra-row[hidden] {
-	display: none !important;
+	display: none;
 }
 
 .play-button {
@@ -266,7 +266,7 @@ main {
 }
 
 .play-button[hidden] {
-	display: none !important;
+	display: none;
 }
 
 .light-theme {
